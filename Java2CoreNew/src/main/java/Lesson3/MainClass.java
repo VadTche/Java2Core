@@ -1,5 +1,7 @@
 package Lesson3;
 
+import java.util.Arrays;
+
 public class MainClass {
     /*
 1.Написать метод, который меняет два элемента массива местами (массив может быть любого ссылочного типа);
@@ -19,6 +21,19 @@ public class MainClass {
 Не забываем про метод добавления фрукта в коробку.
      */
     public static void main(String[] args) {
+        //Задание 1
+        String[] myMassive = new String[]{"Ford", "Dodge"};
+        System.out.println("Задание 1");
+        System.out.println("==========");
+        System.out.println("Первоначальный массив:");
+        System.out.println(Arrays.toString(myMassive));
+        String temp = myMassive[0];
+        myMassive[0] = myMassive[1];
+        myMassive[1] = temp;
+        System.out.println("\nМассив после перестановки:");
+        System.out.println(Arrays.toString(myMassive));
+
+        //Задание 2
         Box<Apple> appleBox1 = new Box<>();
         Box<Apple> appleBox2 = new Box<>();
         Box<Orange> orangeBox = new Box<>();
@@ -28,6 +43,8 @@ public class MainClass {
         Apple a4 = new Apple();
         Orange o1 = new Orange();
         Orange o2 = new Orange();
+        System.out.println("\nЗадание 2");
+        System.out.println("==========");
         System.out.println("вес яблока: " + a1.getWeight() + " и вес апельсина: " + o1.getWeight());
 
         System.out.println("\nДобавляем 4 яблока и 2 апельсина в 3 разные коробки");

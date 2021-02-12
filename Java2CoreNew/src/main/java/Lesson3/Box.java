@@ -6,6 +6,10 @@ public class Box<T extends Fruit> {
 
     private final ArrayList<T> fruits = new ArrayList<>();
 
+    public void addFruit(T fruitToAdd) {
+        fruits.add(fruitToAdd);
+    }
+
     public float getWeight() {
         if (fruits.size() != 0) return fruits.size() * fruits.get(0).getWeight();
         return 0;
@@ -19,7 +23,5 @@ public class Box<T extends Fruit> {
         otherBox.fruits.addAll(fruits);
         fruits.clear();
     }
-
-    public void addFruit(T fruitToAdd) { fruits.add(fruitToAdd); }
 }
 
