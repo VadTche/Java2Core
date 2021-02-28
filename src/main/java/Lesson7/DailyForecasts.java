@@ -3,6 +3,8 @@ package Lesson7;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.List;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 
 public class DailyForecasts {
@@ -22,8 +24,8 @@ public class DailyForecasts {
     @JsonProperty("Night")
     public Night night;
 
-    @JsonProperty("Sources")
-    public String sources;
+    //@JsonProperty("Sources")
+    //public String sources;
 
     @JsonProperty("MobileLink")
     public String mobileLink;
@@ -31,4 +33,8 @@ public class DailyForecasts {
     @JsonProperty("Link")
     public String link;
 
-}
+    @Override
+    public  String toString() {
+        return "Прогноз на " + date + "\\" + day.toString() + "\\" + temperature.minimum.toString() + "\r\n";
+    }
+    }

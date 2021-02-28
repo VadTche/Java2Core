@@ -3,7 +3,7 @@ package Lesson7;
 public class ApplicationGlobalState {
     private static ApplicationGlobalState INSTANCE;
     private String selectedCity = null;
-    private final String API_KEY = "0d1tNZJPfzzT3qGokM18FGGxAUpt7hpj";
+    private final String API_KEY = "zqu43IhsAvRlIePV9xmp3AA9r1zRoVrV";
 
     private ApplicationGlobalState() {
     }

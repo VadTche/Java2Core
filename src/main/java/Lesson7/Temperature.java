@@ -13,4 +13,9 @@ public class Temperature {
     @JsonProperty("Maximum")
     public Maximum maximum;
 
+    @Override
+    public String toString() {
+        return "\\" + minimum;
+    }
+
 }

@@ -16,4 +16,9 @@ public class Minimum {
     @JsonProperty("UnitType")
     public String unitType;
 
+    @Override
+    public  String toString() {
+        return " Минимальная температура: " + value;
+    }
+
 }

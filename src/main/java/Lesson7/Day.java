@@ -21,4 +21,8 @@ public class Day {
 
     @JsonProperty("PrecipitationIntensity")
     public String precipitationIntensity;
+
+    public  String toString() {
+        return " Ожидаемая погода:  " + iconPhrase;
+    }
 }

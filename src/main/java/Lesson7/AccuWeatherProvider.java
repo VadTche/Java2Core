@@ -7,13 +7,12 @@ import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-
 import java.io.*;
 import java.util.List;
+import java.util.Objects;
 
 public class AccuWeatherProvider implements WeatherProvider {
     private static final String BASE_HOST = "dataservice.accuweather.com";
-    private static final String FORECAST_ENDPOINT = "forecasts";
     private static final String FORECAST = "forecasts";
     private static final String FORECAST_TYPE = "daily";
     private static final String FORECAST_PERIOD = "5day";
@@ -45,19 +44,12 @@ public class AccuWeatherProvider implements WeatherProvider {
                       .url(urlFiveDays)
                       .build();
             Response responseFiveDays = client.newCall(requestFiveDays).execute();
-
-//          Сделать через readTree так и не получилось, как ни пытался:
-//            String localDate = objectMapper.readTree(jsonResponseFiveDays).get(1).at("/DailyForecasts/Date").asText();
-//            String text = objectMapper.readTree(jsonResponseFiveDays).get(0).at("/DailyForecasts/Day/IconPhrase").asText();
-//            String temperature = objectMapper.readTree(jsonResponseFiveDays).get(0).at("/DailyForecasts/Temperature/Minimum/Value").asText();
-
-            String response5 = responseFiveDays.body().string();
+            String response5 = Objects.requireNonNull(responseFiveDays.body()).string();
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-            List<ResponseFiveDays> respFiveDays = objectMapper.readValue(response5, new TypeReference<List<ResponseFiveDays>>() {
+            ResponseFiveDays respFiveDays = objectMapper.readValue(response5, new TypeReference<ResponseFiveDays>() {
             });
             System.out.println(respFiveDays);
-//          System.out.println(responseFiveDays.body().string());
         }
     }
 
